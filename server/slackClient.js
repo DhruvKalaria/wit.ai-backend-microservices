@@ -6,21 +6,8 @@ let rtm = null;
 let nlp = null;
 
 function handleOnMessage(message) {
-    nlp.ask(message.text,(err,res) => {
-        if(err) {
-            console.log(err);
-            return;
-        }
-        if(!res.intent) {
-            return rtm.sendMessage("Sorry I dont know what you are talking", message.channel);
-        } else if(res.intent[0].value == 'time' && res.location) {
-            return rtm.sendMessage(`I dont yet know the time in ${res.location[0].value}`, message.channel);
-        } else {
-            console.log(res);
-            rtm.sendMessage('Sorry I did not understand', message.channel);
-        }
-        
-    });    
+    nlp.ask(message.text);
+    rtm.sendMessage('Test Message', message.channel);
 }
 
 function handleOnAuthenticated(rtmStartData) {

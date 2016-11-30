@@ -3,11 +3,11 @@
 const service = require('../server/service');
 const http = require('http');
 const slackClient = require('../server/slackClient');
-const witToken = 'Q2OOSB7ISPLSRRDXTBGBXJVLXLDHMST6';
+const witToken = '';
 const witClient = require('../server/witClient')(witToken);
 const server = http.createServer(service);
 
-const slackToken = 'xoxb-109290369106-Xrg9nYj94g72EyS0wIHNCJBb';
+const slackToken = '';
 const slackLogLevel = 'verbose';
 
 const rtm = slackClient.init(slackToken,slackLogLevel, witClient);
