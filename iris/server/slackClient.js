@@ -32,15 +32,6 @@ function handleOnMessage(message) {
                 console.log(res);
                 rtm.sendMessage('Sorry, I dont know what you are talking about');
             }
-
-            // if (!res.intent) {
-            //     return rtm.sendMessage("Sorry I dont know what you are talking", message.channel);
-            // } else if (res.intent[0].value == 'time' && res.location) {
-            //     return rtm.sendMessage(`I dont yet know the time in ${res.location[0].value}`, message.channel);
-            // } else {
-            //     console.log(res);
-            //     rtm.sendMessage('Sorry I did not understand', message.channel);
-            // }
         });
     }
 }
