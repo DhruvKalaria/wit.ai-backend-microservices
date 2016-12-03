@@ -20,9 +20,7 @@ function handleOnMessage(message) {
             rtm.sendMessage('Sorry I did not understand', message.channel);
         }
         
-    });    
-    nlp.ask(message.text);
-    rtm.sendMessage('Test Message', message.channel);
+    });
 }
 
 function handleOnAuthenticated(rtmStartData) {
