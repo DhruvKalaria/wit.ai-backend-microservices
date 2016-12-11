@@ -12,4 +12,4 @@ and Open weather api.
 6. Service Registry Class in the main application to dynamically add or remove any serivce at any time <br />
 7. Extensible loosely coupled architecture to add any new service without any code changes <br />
 
-![Alt text](http://imgur.com/a/oB7Vd "Architecture Diagram")
+![Alt text](http://imgur.com/download/nnare9X "Architecture Diagram")
