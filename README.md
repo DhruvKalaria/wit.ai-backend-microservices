@@ -1,4 +1,4 @@
-# wit.at-backend-microservices
+# wit.ai-backend-microservices
 
 A project based on micro services architecture using Node.js, Express Framework, Wit.ai NLP platform, Google places API
 and Open weather api.
