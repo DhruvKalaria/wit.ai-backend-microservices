@@ -4,6 +4,7 @@ const CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
 const RTM_EVENTS = require('@slack/client').RTM_EVENTS;
 let rtm = null;
 let nlp = null;
+let registry = null;
 
 function handleOnMessage(message) {
 
@@ -19,7 +20,7 @@ function handleOnMessage(message) {
                     throw new Error("Could not extract intent");
                 }
                 const intent = require('./intents/' + res.intent[0].value + 'Intent');
-                intent.process(res, (err, res) => {
+                intent.process(res, registry, (err, res) => {
                     if(err) {
                         console.log(error.message);
                         return;
@@ -44,9 +45,10 @@ function addAuthenticatedHandler(rtm, handler) {
     rtm.on(CLIENT_EVENTS.RTM.AUTHENTICATED, handler);
 }
 
-module.exports.init = function slackClient(token, logLevel, nlpClient) {
+module.exports.init = function slackClient(token, logLevel, nlpClient, serviceRegistry) {
     rtm = new RtmClient(token, { logLevel: logLevel });
     nlp = nlpClient;
+    registry = serviceRegistry;
     addAuthenticatedHandler(rtm, handleOnAuthenticated);
     rtm.on(RTM_EVENTS.MESSAGE, handleOnMessage);
     return rtm;
